@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+}
