@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "4000:3000"  
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DB=todo_db
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"  
+    depends_on:
+      - backend
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=todo_db
+    volumes:
+      - mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+volumes:
+  mysql-data:
